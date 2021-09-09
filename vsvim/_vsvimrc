@@ -1,0 +1,55 @@
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set hlsearch
+set incsearch
+set autoindent
+set backspace=indent,eol,start
+
+let mapleader=","
+
+" ReSharper Begin =================================================================
+
+" Navigation ----------------------------------------------------------------
+" map <leader>gi :vscmd ReSharper.ReSharper_GotoImplementations<CR>
+" map <leader>fu :vscmd ReSharper.ReSharper_FindUsages<CR>
+
+" Refactoring ---------------------------------------------------------------
+" map <leader>r :vscmd ReSharper.ReSharper_Rename<CR>
+
+" Unit tests ----------------------------------------------------------------
+" *U*nit test *S*pecific (or *S*ession, or *S*ome)
+map <leader>us :vscmd ReSharper.ReSharper_UnitTest_RunCurrentSession<CR>
+" *U*nit test *A*ll
+map <leader>ua :vscmd ReSharper.ReSharper_UnitTest_RunSolution<CR>
+
+" ReSharper End =================================================================
+
+map Y y$
+vnoremap < <gv
+vnoremap > >gv
+vmap aa VGo1G
+vmap <BS> x
+
+map <leader>r :vscmd Refactor.Rename<CR>
+map <leader>em :vscmd Refactor.ExtractMethod<CR>
+map <leader>ei :vscmd Refactor.ExtractInterface<CR>
+map <leader>ef :vscmd Refactor.EncapsulateField<CR>
+map <leader>gi :vscmd Edit.GotoImplementation<CR>
+map <leader>gd :vscmd Edit.GotoDefinition<CR>
+map <leader>gc :vscmd Edit.GotoDeclaration<CR>
+map <leader>fu :vscmd Edit.FindAllReferences<CR>
+map <leader>cd :vscmd Edit.CollapsetoDefinitions<CR>
+map <leader>ex :vscmd Edit.ExpandAllOutlining<CR>
+map <leader>bs :vscmd Build.BuildSolution<CR>
+map <leader>rs :vscmd Build.RebuildSolution<CR>
+map <leader>cs :vscmd Build.CleanSolution<CR>
+map <leader>ql :vscmd Window.QuickLaunch<CR>
+map <silent> <leader>tc :tabclose<CR>
+map <silent> <leader>tn :tabnew<CR>
+map <silent> <leader>to :vscmd File.CloseAllButThis<CR>
+map <silent> <Leader><space> :nohlsearch<CR>
+
+" For use with the CodeAlingment extension
+map <leader>as :vscmd Edit.AlignByString<CR>

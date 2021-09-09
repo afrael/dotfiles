@@ -1,0 +1,84 @@
+[user]
+	name = Afrael O
+	email = afr@afrael.dev
+[help]
+	autocorrect = 1
+[color]
+	ui = auto
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = kdiff3
+[diff]
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = kdiff3
+[core]
+	autocrlf = true
+    editor = vim -f -i NONE
+	trustctime = false
+	filemode = false
+[push]
+	default = simple
+[alias]
+	lll = log --oneline --graph --all --decorate
+	co = checkout
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+
+	#from ochronous
+	#https://blog.ochronus.com/git-tips-from-the-trenches-5c796d5f114c#.nku3r410n
+	ds = diff --staged      # git ds - diff your staged changes == review before committing.
+	st = status -sb         # smarter status - include tag and branch info
+	fup = log --since '1 day ago' --oneline --author afrael_ortiz@ultimatesoftware.com  # I know what you did yesterday - great for follow-ups
+
+	# some resets without explanation
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+
+	# Get the current branch name (not so useful in itself, but used in other aliases)
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+
+    # Fire up your difftool (e.g. Kaleidescope) with all the changes that are on the current branch.
+    code-review = difftool origin/master...
+
+	# basic shortcuts
+	cp = cherry-pick
+	cl = clone
+	ci = commit
+	ca = commit --amend
+	co = checkout
+	br = branch
+	diff = diff --word-diff
+	dc = diff --cached
+	pp = "!git push origin $(git branch-name)"
+	ppl = "!git pull origin $(git branch-name)"
+
+	# stash shortcuts
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+
+	# log related - thanks to @mwd410
+	l = log
+	lh = log --graph
+	la = !git lh --date-order --all 2> /dev/null
+	lb = log --graph --simplify-by-decoration
+	lba = !git lb --all
+	h = !git --no-pager log --graph -n 15
+	a = !git --no-pager la -n 15
+	brl = branch --list
+	last = log -1 --stat
+	unstage = reset HEAD --
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+[rerere]
+	enabled = true
+[mergetool]
+	keepBackup = false
+	keeptemporaries = false
+	keepbackups = false
+	prompt = false
+	trustexitcode = false

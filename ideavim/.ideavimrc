@@ -1,0 +1,56 @@
+" highlight pattern matches
+set hlsearch
+
+" turn on incremental search
+set incsearch
+
+" turn on line numbers
+set number
+set numberwidth=5
+
+" Case-sensitive if has caps
+set ignorecase smartcase
+
+" set buffer for history commands and undo
+set history=1000
+set undolevels=1000
+
+" no beeping
+set visualbell
+
+" set relative line number
+set relativenumber
+
+" Match angle brackets
+set matchpairs+=<:>,?:?
+
+" set leader
+let mapleader = ","
+let maplocalleader = "\\"
+
+" Set shortcut to clear search highlights
+nmap <Leader><space> :nohlsearch<cr>
+
+" Shortcut for selection whole file
+vmap aa VGo1G
+ 
+" Make backspace/delete work in visual mode
+vmap <BS> x
+
+" enable vim-surround
+set surround
+
+" Set shortcut to build solution
+nmap <Leader>bs :action BuildSolutionAction<cr>
+
+" Set shortcut to rebuild solution
+nmap <Leader>rs :action RebuildSolutionAction<cr>
+
+" Set shortcut to rebuild solution
+nmap <Leader>cs :action CleanSolutionAction<cr>
+
+" Set shortcut to rebuild solution
+nmap <Leader>to :action CloseAllEditorsButActive<cr>
+ 
+" Set shortcut to rebuild solution
+nmap <Leader>gi :action ReSharperGotoImplementation<cr>
